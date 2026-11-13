@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --apple-bg: #05020a;
+    --apple-card: #0f071e;
+    --apple-card-hover: #160a2b;
+    --apple-purple: #a855f7;
+    --apple-purple-glow: rgba(168, 85, 247, 0.45);
+    --apple-pink-glow: rgba(236, 72, 153, 0.35);
+  }
+
+  body {
+    background-color: #05020a;
+    color: #f5f5f7;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-width: 320px;
+    selection-background-color: #a855f7;
+    selection-color: #ffffff;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+/* Use the full viewport width with a small, fluid safety gutter. */
+.max-w-7xl,
+.max-w-6xl {
+  width: 100%;
+  max-width: none;
+  padding-inline: clamp(0.75rem, 1.5vw, 1.5rem);
+  box-sizing: border-box;
+}
+
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hide scrollbars but keep smooth scrollable */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Luxury Gradient Utilities */
+.text-gradient-purple {
+  background: linear-gradient(135deg, #e9d5ff 0%, #c084fc 35%, #a855f7 65%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.4));
+}
+
+.text-gradient-titanium {
+  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 45%, #a1a1aa 85%, #71717a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-luxury {
+  background: linear-gradient(135deg, #ffffff 0%, #e2d9f3 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-luxury-purple {
+  background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+}
+
+.bg-luxury-glass {
+  background: rgba(18, 11, 31, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 50px -10px rgba(168, 85, 247, 0.45);
+}
+
+.glow-button {
+  box-shadow: 0 0 30px -4px rgba(168, 85, 247, 0.6), 0 0 60px -10px rgba(236, 72, 153, 0.35);
+}
+
+/* Animated Shimmer Button Sweep */
+@keyframes sheen-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  50%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  animation: sheen-sweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Slow Motion Floating & 3D Animations */
+@keyframes slow-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes slow-3d-orbit {
+  0% {
+    transform: perspective(1400px) rotateY(-18deg) rotateX(8deg) translateY(0px);
+  }
+  25% {
+    transform: perspective(1400px) rotateY(0deg) rotateX(12deg) translateY(-8px);
+  }
+  50% {
+    transform: perspective(1400px) rotateY(18deg) rotateX(6deg) translateY(-14px);
+  }
+  75% {
+    transform: perspective(1400px) rotateY(0deg) rotateX(4deg) translateY(-8px);
+  }
+  100% {
+    transform: perspective(1400px) rotateY(-18deg) rotateX(8deg) translateY(0px);
+  }
+}
+
+@keyframes cosmic-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes ring-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes neon-border-pulse {
+  0%, 100% {
+    border-color: rgba(168, 85, 247, 0.25);
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+  }
+  50% {
+    border-color: rgba(236, 72, 153, 0.5);
+    box-shadow: 0 0 35px rgba(236, 72, 153, 0.35);
+  }
+}
+
+.animate-slow-float {
+  animation: slow-float 8s ease-in-out infinite;
+}
+
+.animate-slow-3d-orbit {
+  animation: slow-3d-orbit 14s ease-in-out infinite;
+}
+
+.animate-cosmic-pulse {
+  animation: cosmic-pulse 8s ease-in-out infinite;
+}
+
+.animate-ring-rotate {
+  animation: ring-rotate 28s linear infinite;
+}
+
+.neon-border-glow {
+  animation: neon-border-pulse 5s ease-in-out infinite;
+}
+
+/* 3D Perspective Container */
+.perspective-container {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
